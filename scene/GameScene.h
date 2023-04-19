@@ -48,7 +48,16 @@ private: // メンバ変数
 	//テクスチャハンドル
 	uint32_t textureHandle_ = 0;
 	//スプライト
-	Sprite* sprite_ = nullptr;
+	//Sprite* sprite_ = nullptr;
+
+
+	//3Dモデル
+	Model* model_ = nullptr;
+
+	//ワールドトランスフォーム
+	WorldTransform worldTransform_;
+	//ビュープロジェクション
+	ViewProjection viewProjection_;
 
 
 	/// <summary>

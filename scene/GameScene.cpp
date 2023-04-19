@@ -5,7 +5,8 @@
 GameScene::GameScene() {}
 
 GameScene::~GameScene() { 
-	delete sprite_; 
+	//delete sprite_; 
+	delete model_;
 }
 
 void GameScene::Initialize() {
@@ -18,20 +19,32 @@ void GameScene::Initialize() {
 	textureHandle_ = TextureManager::Load("sample.png");
 
 	//スプライトの生成
-	sprite_ = Sprite::Create(textureHandle_, {100.50});
+	//sprite_ = Sprite::Create(textureHandle_, {100.50});
+
+
+	// 3Dモデルの生成
+	model_ = Model::Create();
+
+	//Modelの描画には以下の２つが必要
+	////ワールドトランスフォーム
+	worldTransform_.Initialize();
+	// ビュープロジェクション
+	viewProjection_.Initialize();
+
+
 
 }
 
 void GameScene::Update() { 
 	//スプライトの現在の座標を取得
-	Vector2 position = sprite_->GetPosition();
+	//Vector2 position = sprite_->GetPosition();
 
 	//座標を{2,1}移動
-	position.x += 2.0f;
-	position.y += 1.0f;
+	//position.x += 2.0f;
+	//position.y += 1.0f;
 
 	//移動した座標をスプライトに反映
-	sprite_->SetPosition(position);
+	//sprite_->SetPosition(position);
 
 }
 
@@ -42,16 +55,18 @@ void GameScene::Draw() {
 
 #pragma region 背景スプライト描画
 	// 背景スプライト描画前処理
-	Sprite::PreDraw(commandList);
+	Model::PreDraw(commandList);
 
 	/// <summary>
 	/// ここに背景スプライトの描画処理を追加できる
 	/// </summary>
 
-	sprite_->Draw();
+	//sprite_->Draw();
+	model_->Draw(worldTransform_, viewProjection_, textureHandle_);
+
 
 	// スプライト描画後処理
-	Sprite::PostDraw();
+	Model::PostDraw();
 	// 深度バッファクリア
 	dxCommon_->ClearDepthBuffer();
 #pragma endregion
