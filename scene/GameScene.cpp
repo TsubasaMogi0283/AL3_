@@ -54,6 +54,7 @@ void GameScene::Initialize() {
 	AxisIndicator::GetInstance()->SetTargetViewProjection(&debugCamera_->GetViewProjection());
 
 
+
 }
 
 void GameScene::Update() { 
