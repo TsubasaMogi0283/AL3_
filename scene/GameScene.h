@@ -8,6 +8,7 @@
 #include "Sprite.h"
 #include "ViewProjection.h"
 #include "WorldTransform.h"
+#include <DebugCamera.h>
 
 /// <summary>
 /// ゲームシーン
@@ -63,6 +64,9 @@ private: // メンバ変数
 	uint32_t soundDataHandle_=0;
 	
 	float inputFloat3[3] = {0, 0, 0};
+
+
+	DebugCamera* debugCamera_ = nullptr;
 
 
 	/// <summary>
