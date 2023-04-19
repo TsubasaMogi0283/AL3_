@@ -48,7 +48,7 @@ private: // メンバ変数
 	//テクスチャハンドル
 	uint32_t textureHandle_ = 0;
 	//スプライト
-	//Sprite* sprite_ = nullptr;
+	Sprite* sprite_ = nullptr;
 
 
 	//3Dモデル
@@ -58,6 +58,11 @@ private: // メンバ変数
 	WorldTransform worldTransform_;
 	//ビュープロジェクション
 	ViewProjection viewProjection_;
+
+	//サウンドデータハンドル
+	uint32_t soundDataHandle_=0;
+	
+	float inputFloat3[3] = {0, 0, 0};
 
 
 	/// <summary>
